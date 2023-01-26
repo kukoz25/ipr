@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,9 +11,13 @@ public class Main_menu extends JFrame {
     private JButton wylogujButton;
     private JButton dodajPrzewoznikaButton;
     private JButton miejscaKluczoweButton;
-    private JButton zniżkiButton;
-    private JButton zarządzanieOdcinkamiButton;
     private JPanel panel;
+    private JTabbedPane tabbedPane1;
+    private JTable tabelamiejsc;
+    private JComboBox kraj;
+    private JButton edytujMiejsceKluczoweButton;
+    private JButton dodajMiejsceKluczoweButton;
+    private JButton usuńMiesjceKluczoweButton;
 
 
     public Main_menu() {
@@ -23,6 +28,10 @@ public class Main_menu extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        String k[] = {"Nazwa miesjca", "Kraj"};
+        DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dane(), k);;
+        tabelamiejsc.setModel(dtm);
+        tabelamiejsc.setDefaultEditor(Object.class, null);
         wylogujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,14 +46,13 @@ public class Main_menu extends JFrame {
                 password_change p = new password_change();
             }
         });
-        dodajPrzewoznikaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main_menu.super.setVisible(false);
-                Add_carrier c = new Add_carrier();
-            }
-        });
+
     }
 
 
+    private void createUIComponents() {
+        kraj=new JComboBox<>(ListaMiejsc.kraje());
+        kraj.setSelectedIndex(-1);
+
+    }
 }
