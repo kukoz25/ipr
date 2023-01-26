@@ -32,6 +32,14 @@ Weryfikuj.werifikuj(loginField1.getText()+';'+new String(passwordField1.getPassw
                 password_change p= new password_change();
             }
         });
+        zalozKontoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Login.super.setVisible(false);
+                new New_Account();
+
+            }
+        });
     }
 }
 

@@ -8,7 +8,8 @@ public class Weryfikuj {
         if (ListaUzytkownikow.sprawdzdane(dane)) {
             new Main_menu();
 //System.out.println("chuj");
-        } else {
+        }
+        else {
             JOptionPane.showMessageDialog(null, "Błędne dane logowanie");
             new Login();
         }
