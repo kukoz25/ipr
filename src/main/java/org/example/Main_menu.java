@@ -77,6 +77,12 @@ public class Main_menu extends JFrame {
                 }
             }
         });
+        usuńMiesjceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
 

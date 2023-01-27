@@ -73,21 +73,14 @@ public class EditMK extends JFrame{
                             writer.close();
                             reader.close();
 
-                            System.out.println("etap1");
-
                             boolean etap2 = inputFile.delete();
-                            System.out.println(etap2);
                             File dump = new File("miejsca.csv");
-                            System.out.println("etap3");
                             boolean etap4 = tempFile.renameTo(dump);
-                            System.out.println(etap4);
 
                             String str = nazwaMK.getText()+","+krajMK.getText();
                             BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
                             writer2.append(str);
                             writer2.close();
-
-
                         }
                         catch(IOException ex) {
                             System.out.println("error przy edytowaniu mk");

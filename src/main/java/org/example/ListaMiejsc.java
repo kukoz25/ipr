@@ -22,6 +22,7 @@ public class ListaMiejsc {
                 //System.out.println(uzytkownik[0]+' '+uzytkownik[1]+' '+uzytkownik[2]+' '+uzytkownik[3]+' '+uzytkownik[4]);
                 this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1]));
             }
+            br.close();
         }
         catch (IOException e)
         {
