@@ -19,6 +19,8 @@ public class Main_menu extends JFrame {
     private JButton dodajMiejsceKluczoweButton;
     private JButton usuńMiesjceKluczoweButton;
     private JTable klienci;
+    private JTextField textField1;
+    private JButton szukajButton;
 
 
     public Main_menu() {
@@ -52,6 +54,29 @@ public class Main_menu extends JFrame {
             }
         });
 
+        dodajMiejsceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main_menu.super.dispose();
+                EditMK editMK = new EditMK(true, "null","null");
+            }
+        });
+        edytujMiejsceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = tabelamiejsc.getSelectedRow();
+                if(row != -1){
+                    String nazwa = tabelamiejsc.getModel().getValueAt(row, 0).toString();
+                    String kraj = tabelamiejsc.getModel().getValueAt(row, 1).toString();
+
+                    Main_menu.super.dispose();
+                    EditMK editMK = new EditMK(false, nazwa, kraj);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
     }
 
 
