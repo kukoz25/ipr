@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 public class usunMK extends JFrame{
     private JPanel panel;
     private JTable table1;
-    private JButton usuńMiejsceKluczoweRazemButton;
+    private JButton usunMiejsceKluczoweRazemButton;
     private JButton anulujButton;
 
-    public usunMK() {
+    public usunMK(String nazwa, String kraj) {
         this.setContentPane(this.panel);
         this.setTitle("Usuń miejsce kluczowe");
         this.setSize(600, 400);
@@ -24,7 +24,7 @@ public class usunMK extends JFrame{
                 Main_menu mainmenu = new Main_menu();
             }
         });
-        usuńMiejsceKluczoweRazemButton.addActionListener(new ActionListener() {
+        usunMiejsceKluczoweRazemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
