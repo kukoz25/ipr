@@ -17,7 +17,7 @@ public class Main_menu extends JFrame {
     private JComboBox kraj;
     private JButton edytujMiejsceKluczoweButton;
     private JButton dodajMiejsceKluczoweButton;
-    private JButton usuńMiesjceKluczoweButton;
+    private JButton usunMiesjceKluczoweButton;
     private JTable klienci;
     private JTextField textField1;
     private JButton szukajButton;
@@ -77,10 +77,11 @@ public class Main_menu extends JFrame {
                 }
             }
         });
-        usuńMiesjceKluczoweButton.addActionListener(new ActionListener() {
+        usunMiesjceKluczoweButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Main_menu.super.dispose();
+                usunMK guiusun = new usunMK();
             }
         });
     }

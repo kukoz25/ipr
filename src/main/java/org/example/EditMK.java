@@ -30,6 +30,10 @@ public class EditMK extends JFrame{
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        if(!isAdd){
+            nazwaMK.setText(nMk);
+            krajMK.setText(kMk);
+        }
 
         anulujButton.addActionListener(new ActionListener() {
             @Override
@@ -51,8 +55,6 @@ public class EditMK extends JFrame{
                         } catch(IOException ex) {
                             System.out.println("error przy dodawaniu mk");
                         }
-                        EditMK.super.setVisible(false);
-                        Main_menu main_menu = new Main_menu();
 
                     } else {
                         try {
@@ -85,9 +87,9 @@ public class EditMK extends JFrame{
                         catch(IOException ex) {
                             System.out.println("error przy edytowaniu mk");
                         }
-                        EditMK.super.setVisible(false);
-                        Main_menu main_menu = new Main_menu();
                     }
+                    EditMK.super.setVisible(false);
+                    Main_menu main_menu = new Main_menu();
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Proszę podać nazwę i kraj!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
