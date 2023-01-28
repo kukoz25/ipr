@@ -22,6 +22,9 @@ public class Main_menu extends JFrame {
     private JTextField textField1;
     private JButton szukajButton;
     private JTable odcinki;
+    private JTextField textField2;
+    private JTextField nazwaprzewoznika;
+    private JButton dodajButton;
 
 
     public Main_menu() {
@@ -97,6 +100,18 @@ public class Main_menu extends JFrame {
                 else {
                     JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
                 }
+            }
+        });
+        dodajButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ListaPrzewoznikow.checkdane(nazwaprzewoznika.getText()))
+                {
+                    ListaPrzewoznikow.dodajdoListy(nazwaprzewoznika.getText());
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Błędne dane");
+
             }
         });
     }
