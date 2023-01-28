@@ -1,8 +1,6 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,5 +41,32 @@ public class ListaPrzewoznikow {
             }
         }
             return null;
+    }
+
+    public static boolean checkdane(String g)
+    {
+        if(g.isEmpty())
+        {
+            return false;
+        }
+        else return true;
+    }
+
+    public static void dodajdoListy(String g)
+    {
+        lista.add(new Przewoznik(g));
+        try
+        {
+            FileWriter fileWriter = new FileWriter("przewoznicy.csv",true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+
+            bufferedWriter.write(g+"\n");
+            bufferedWriter.close();
+            fileWriter.close();
+
+        }
+        catch(IOException ex) {
+            System.out.println("Error writing to file '"+ "przewoznicy.csv" + "'");}
     }
 }
