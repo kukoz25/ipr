@@ -80,8 +80,17 @@ public class Main_menu extends JFrame {
         usunMiesjceKluczoweButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main_menu.super.dispose();
-                usunMK guiusun = new usunMK();
+                int row = tabelamiejsc.getSelectedRow();
+                if(row != -1){
+                    String nazwa = tabelamiejsc.getModel().getValueAt(row, 0).toString();
+                    String kraj = tabelamiejsc.getModel().getValueAt(row, 1).toString();
+
+                    Main_menu.super.dispose();
+                    usunMK guiusun = new usunMK(nazwa, kraj);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
     }
