@@ -21,10 +21,13 @@ public class Main_menu extends JFrame {
     private JTable klienci;
     private JTextField textField1;
     private JButton szukajButton;
-    private JTable odcinki;
-    private JTextField textField2;
+    private JTable odcinkiTable;
+    private JTextField skadTextField;
     private JTextField nazwaprzewoznika;
     private JButton dodajButton;
+    private JButton szukajButton1;
+    private JTextField dokadTextField;
+    private JButton dodajOdcinekButton;
 
 
     public Main_menu() {
@@ -46,8 +49,8 @@ public class Main_menu extends JFrame {
         String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
         //new ListaPrzewoznikow();
         DefaultTableModel dtm2 = new DefaultTableModel(ListaOdcinkow.dane(), o);;
-        odcinki.setModel(dtm2);
-        odcinki.setDefaultEditor(Object.class, null);
+        odcinkiTable.setModel(dtm2);
+        odcinkiTable.setDefaultEditor(Object.class, null);
         wylogujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,6 +114,12 @@ public class Main_menu extends JFrame {
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Błędne dane");
+
+            }
+        });
+        dodajOdcinekButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
             }
         });

@@ -45,12 +45,13 @@
           <text value="Wizy"/>
         </properties>
       </component>
-      <component id="c2015" class="javax.swing.JRadioButton" binding="szczepionkiRadioButton" default-binding="true">
+      <component id="c2015" class="javax.swing.JRadioButton" binding="szczepieniaRadioButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Szczepionki"/>
+          <selected value="true"/>
+          <text value="Szczepienia"/>
         </properties>
       </component>
       <component id="38671" class="javax.swing.JRadioButton" binding="zagrozeniaRadioButton">
@@ -58,7 +59,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Zagrożenia"/>
+          <text value="Zagrozenia"/>
         </properties>
       </component>
       <component id="7b649" class="javax.swing.JButton" binding="dodajOgraniczenieButton" default-binding="true">

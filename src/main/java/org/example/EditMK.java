@@ -5,16 +5,13 @@ import java.io.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class EditMK extends JFrame{
     private JPanel panel;
     private JTable table1;
     private JTextField nazwaMK;
     private JRadioButton wizyRadioButton;
-    private JRadioButton szczepionkiRadioButton;
+    private JRadioButton szczepieniaRadioButton;
     private JRadioButton zagrozeniaRadioButton;
     private JButton dodajOgraniczenieButton;
     private JButton usunOgraniczenieButton;
@@ -120,6 +117,12 @@ public class EditMK extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(null, "Proszę podać nazwę i kraj!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
                 }
+            }
+        });
+        dodajOgraniczenieButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
