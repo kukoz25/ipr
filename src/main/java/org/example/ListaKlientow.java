@@ -23,6 +23,7 @@ public class ListaKlientow {
                 //System.out.println(klient[0]+klient[1]+klient[2]+klient[3]+klient[4]);
                 this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],klient[5]));
             }
+            br.close();
         }
         catch (IOException e)
         {

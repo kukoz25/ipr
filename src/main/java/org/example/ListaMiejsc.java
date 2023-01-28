@@ -59,4 +59,19 @@ public class ListaMiejsc {
 
     }
 
+    public static MiejscaKluczowe dajmiejsce(String nazwa)
+    {
+        new ListaMiejsc();
+        //System.out.println(lista.size());
+        for(int i=0; i<lista.size();i++)
+        {
+            if(lista.get(i).dajnazwe().equals(nazwa))
+            {
+                //System.out.println(lista.get(i));
+                return lista.get(i);
+            }
+        }
+        return null;
+    }
+
 }

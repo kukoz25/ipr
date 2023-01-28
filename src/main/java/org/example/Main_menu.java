@@ -21,6 +21,7 @@ public class Main_menu extends JFrame {
     private JTable klienci;
     private JTextField textField1;
     private JButton szukajButton;
+    private JTable odcinki;
 
 
     public Main_menu() {
@@ -32,13 +33,18 @@ public class Main_menu extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         String k[] = {"Nazwa miesjca", "Kraj"};
-        String n[]={"Imię", "Nazwisko", "Adres email", "numer telefonu","kraj pochodzenia"};
         DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dane(), k);;
-        DefaultTableModel dtm1 = new DefaultTableModel(ListaKlientow.dane(), n);;
         tabelamiejsc.setModel(dtm);
         tabelamiejsc.setDefaultEditor(Object.class, null);
+        String n[]={"Imię", "Nazwisko", "Adres email", "numer telefonu","kraj pochodzenia"};
+        DefaultTableModel dtm1 = new DefaultTableModel(ListaKlientow.dane(), n);;
         klienci.setModel(dtm1);
         klienci.setDefaultEditor(Object.class, null);
+        String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
+        //new ListaPrzewoznikow();
+        DefaultTableModel dtm2 = new DefaultTableModel(ListaOdcinkow.dane(), o);;
+        odcinki.setModel(dtm2);
+        odcinki.setDefaultEditor(Object.class, null);
         wylogujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
