@@ -142,6 +142,7 @@ public class Main_menu extends JFrame {
 
             }
         });
+
         klienciTable.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,7 +157,8 @@ public class Main_menu extends JFrame {
                 System.out.println(rowData[2]);
 
                 if (tableRow >= 0 && tableColumn >= 0) {
-                    owned_discount o = new owned_discount(rowData[2]);
+                    Main_menu.super.dispose();
+                    new owned_discount(rowData[2]);
                 }
             }
         });

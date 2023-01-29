@@ -12,9 +12,6 @@ public class discountEditingAdding extends JFrame{
     private JButton anulujButton;
 
     private String wybranyEmail;
-//
-//    Logout.super.setVisible(false);
-//    Main_menu m = new Main_menu();
 
     public discountEditingAdding(String wybranyEmail) {
 
@@ -29,7 +26,8 @@ public class discountEditingAdding extends JFrame{
         anulujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                discountEditingAdding.super.setVisible(false);
+                discountEditingAdding.super.dispose();
+                new owned_discount(wybranyEmail);
             }
         });
 
@@ -37,6 +35,13 @@ public class discountEditingAdding extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ListaKlientow.dodajZnizke(wybranyEmail,nazwaZnizkiTextField.getText(), wielkoscZnizkiComboBox.getSelectedItem().toString());
+                try {
+                    ListaKlientow.dopisDoCSV();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+                discountEditingAdding.super.dispose();
+                new owned_discount(wybranyEmail);
             }
         });
     }
@@ -56,7 +61,9 @@ public class discountEditingAdding extends JFrame{
         anulujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                discountEditingAdding.super.setVisible(false);
+                discountEditingAdding.super.dispose();
+                new owned_discount(wybranyEmail);
+
             }
         });
 
@@ -65,6 +72,13 @@ public class discountEditingAdding extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 ListaKlientow.usunZnizke(wybranyEmail,wartoscWybranejZnizki, nazwaWybranejZnizki);
                 ListaKlientow.dodajZnizke(wybranyEmail, nazwaZnizkiTextField.getText(), wielkoscZnizkiComboBox.getSelectedItem().toString());
+                try {
+                    ListaKlientow.dopisDoCSV();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+                discountEditingAdding.super.dispose();
+                new owned_discount(wybranyEmail);
             }
         });
 

@@ -2,10 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Klient {
     private String imie;
@@ -25,10 +21,12 @@ public class Klient {
 
         this.lista =new ArrayList<Znizka>();
 
-        String tmp[] = z.split(";");
-        for (int j = 0; j < tmp.length; j++) {
-            String[] tmp2 = tmp[j].split("-");
-            lista.add(new Znizka(tmp2[0], Double.parseDouble(tmp2[1])));
+        if(!z.equals("")){
+            String tmp[] = z.split(";");
+            for (int j = 0; j < tmp.length; j++) {
+                String[] tmp2 = tmp[j].split("-");
+                lista.add(new Znizka(tmp2[0], Double.parseDouble(tmp2[1])));
+            }
         }
     }
 
@@ -47,31 +45,14 @@ public class Klient {
 
     public void dodajZnizke(String nazwaZnizki, String wielkoscZnizki) {
         lista.add(new Znizka(nazwaZnizki, Double.parseDouble(wielkoscZnizki)));
-        System.out.println("dodano znizke" + nazwaZnizki);
-
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i).dajwartosc());
-            System.out.println(lista.get(i).dajnazwe());
-        }
-
-        //TODO dodać zapisywanie nowo dodanej zniżki do pliku (działa dodawanie znizki do listy zniżek)
     }
 
 
     public void usunZnizke(String wielkoscZnizki, String nazwaZnizki) {
-
         for (int i = 0; i < lista.size(); i++){
             if(lista.get(i).dajnazwe().equals(nazwaZnizki) && lista.get(i).dajwartosc() == Integer.parseInt(wielkoscZnizki)){
                 lista.remove(i);
             }
         }
-
-
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i).dajwartosc());
-            System.out.println(lista.get(i).dajnazwe());
-        }
-
-        //TODO dodać zapisywanie usuniętej zniżki do pliku (działa usuwanie znizki z listy)
     }
 }

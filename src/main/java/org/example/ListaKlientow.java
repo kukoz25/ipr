@@ -3,6 +3,8 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 public class ListaKlientow {
     private static List<Klient> lista;
@@ -18,7 +20,13 @@ public class ListaKlientow {
             while ((line = br.readLine()) != null)
             {
                 String[] klient = line.split(splitBy);
-                this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],klient[5]));
+                System.out.println(klient.length);
+                if(klient.length>5){
+                    this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],klient[5]));
+                }
+                else{
+                    this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],""));
+                }
             }
             br.close();
         }
@@ -47,7 +55,6 @@ public class ListaKlientow {
     {
         new ListaKlientow();
 
-
         for(int i=0;i<lista.size();i++){
             if (lista.get(i).dajmail().equals(tableEmail)){
                 String [][] dane= new String[lista.get(i).dajZnizki().size()][3];
@@ -75,7 +82,6 @@ public class ListaKlientow {
     }
 
 
-
     public static void usunZnizke(String tableEmail, String wartoscWybranejZnizki, String nazwaWybranejZnizki) {
 
         for(int i=0;i<lista.size();i++){
@@ -83,5 +89,21 @@ public class ListaKlientow {
                 lista.get(i).usunZnizke(wartoscWybranejZnizki, nazwaWybranejZnizki);
             }
         }
+    }
+
+    public static void dopisDoCSV()throws Exception{
+
+        String fileName = "C:\\Users\\rainb\\IdeaProjects\\IPR_main\\klienci.csv";
+        FileWriter fileWriter = new FileWriter(fileName);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+        for(int i=0;i<lista.size();i++){
+            String linijka = lista.get(i).dajimie() + "," + lista.get(i).dajnazwisko() + "," + lista.get(i).dajmail() + "," + lista.get(i).dajnumer() + "," + lista.get(i).dajkraj() + ",";
+            for(int j=0;j<lista.get(i).dajZnizki().size();j++){
+                linijka = linijka + lista.get(i).dajZnizki().get(j).dajnazwe() + "-" + lista.get(i).dajZnizki().get(j).dajwartosc()+ ";";
+            }
+            bufferedWriter.write(linijka + "\n");
+        }
+        bufferedWriter.close();
     }
 }

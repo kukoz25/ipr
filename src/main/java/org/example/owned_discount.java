@@ -48,13 +48,15 @@ public class owned_discount extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 owned_discount.super.setVisible(false);
+                new Main_menu();
             }
         });
 
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                discountEditingAdding d = new discountEditingAdding(wybranyEmail);
+                owned_discount.super.dispose();
+                new discountEditingAdding(wybranyEmail);
             }
         });
 
@@ -64,6 +66,13 @@ public class owned_discount extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(!nazwaWybranejZnizki.equals("") && !wartoscWybranejZnizki.equals("")){
                     ListaKlientow.usunZnizke(tableEmail,wartoscWybranejZnizki, nazwaWybranejZnizki);
+                    try {
+                        ListaKlientow.dopisDoCSV();
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    owned_discount.super.dispose();
+                    new owned_discount(tableEmail);
                 }
             }
         });
@@ -73,7 +82,8 @@ public class owned_discount extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (tableRow != -1 && tableColumn != -1){
-                    discountEditingAdding d = new discountEditingAdding(wybranyEmail, nazwaWybranejZnizki, wartoscWybranejZnizki);
+                    owned_discount.super.dispose();
+                    new discountEditingAdding(wybranyEmail, nazwaWybranejZnizki, wartoscWybranejZnizki);
                 }
             }
         });
