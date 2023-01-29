@@ -22,6 +22,7 @@ public class ListaUzytkownikow {
                 //System.out.println(uzytkownik[0]+' '+uzytkownik[1]+' '+uzytkownik[2]+' '+uzytkownik[3]+' '+uzytkownik[4]);
                 this.lista.add(new Uzytkownik(uzytkownik[0],uzytkownik[1],uzytkownik[2],uzytkownik[3],uzytkownik[4]));
             }
+            br.close();
         }
         catch (IOException e)
         {

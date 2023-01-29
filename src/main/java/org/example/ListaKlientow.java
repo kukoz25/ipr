@@ -20,6 +20,7 @@ public class ListaKlientow {
                 String[] klient = line.split(splitBy);
                 this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],klient[5]));
             }
+            br.close();
         }
         catch (IOException e)
         {

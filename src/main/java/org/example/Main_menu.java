@@ -17,6 +17,17 @@ public class Main_menu extends JFrame {
     private JComboBox kraj;
     private JButton edytujMiejsceKluczoweButton;
     private JButton dodajMiejsceKluczoweButton;
+    private JButton usunMiesjceKluczoweButton;
+    private JTable klienci;
+    private JTextField textField1;
+    private JButton szukajButton;
+    private JTable odcinkiTable;
+    private JTextField skadTextField;
+    private JTextField nazwaprzewoznika;
+    private JButton dodajButton;
+    private JButton szukajButton1;
+    private JTextField dokadTextField;
+    private JButton dodajOdcinekButton;
     private JButton usuńMiesjceKluczoweButton;
     private JTable klienciTable;
     private JTextField SzukajField;
@@ -44,9 +55,16 @@ public class Main_menu extends JFrame {
 
         DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dane(), k);
         DefaultTableModel dtm1 = new DefaultTableModel(ListaKlientow.dane(), n);
-
+;
         tabelamiejsc.setModel(dtm);
         tabelamiejsc.setDefaultEditor(Object.class, null);
+        klienci.setModel(dtm1);
+        klienci.setDefaultEditor(Object.class, null);
+        String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
+        //new ListaPrzewoznikow();
+        DefaultTableModel dtm2 = new DefaultTableModel(ListaOdcinkow.dane(), o);;
+        odcinkiTable.setModel(dtm2);
+        odcinkiTable.setDefaultEditor(Object.class, null);
         klienciTable.setModel(dtm1);
         klienciTable.setDefaultEditor(Object.class, null);
         wylogujButton.addActionListener(new ActionListener() {
@@ -64,6 +82,65 @@ public class Main_menu extends JFrame {
             }
         });
 
+        dodajMiejsceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main_menu.super.dispose();
+                EditMK editMK = new EditMK(true, "","");
+            }
+        });
+        edytujMiejsceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = tabelamiejsc.getSelectedRow();
+                if(row != -1){
+                    String nazwa = tabelamiejsc.getModel().getValueAt(row, 0).toString();
+                    String kraj = tabelamiejsc.getModel().getValueAt(row, 1).toString();
+
+                    Main_menu.super.dispose();
+                    EditMK editMK = new EditMK(false, nazwa, kraj);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+        usunMiesjceKluczoweButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = tabelamiejsc.getSelectedRow();
+                if(row != -1){
+                    String nazwa = tabelamiejsc.getModel().getValueAt(row, 0).toString();
+                    String kraj = tabelamiejsc.getModel().getValueAt(row, 1).toString();
+
+                    Main_menu.super.dispose();
+                    new usunMK(nazwa, kraj);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+        dodajButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ListaPrzewoznikow.checkdane(nazwaprzewoznika.getText()))
+                {
+                    ListaPrzewoznikow.dodajdoListy(nazwaprzewoznika.getText());
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Błędne dane");
+
+            }
+        });
+        dodajOdcinekButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main_menu.super.dispose();
+                new dodajOdcinek();
+
+            }
+        });
         klienciTable.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,5 +166,6 @@ public class Main_menu extends JFrame {
     private void createUIComponents() {
         kraj=new JComboBox<>(ListaMiejsc.kraje());
         kraj.setSelectedIndex(-1);
+
     }
 }
