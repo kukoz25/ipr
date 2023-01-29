@@ -1,8 +1,6 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,6 @@ public class ListaKlientow {
             while ((line = br.readLine()) != null)
             {
                 String[] klient = line.split(splitBy);
-                //System.out.println(klient[0]+klient[1]+klient[2]+klient[3]+klient[4]);
                 this.lista.add(new Klient(klient[0],klient[1],klient[2],klient[3],klient[4],klient[5]));
             }
             br.close();
@@ -42,9 +39,61 @@ public class ListaKlientow {
             dane[i][2]=lista.get(i).dajmail();
             dane[i][3]=lista.get(i).dajnumer();
             dane[i][4]=lista.get(i).dajkraj();
-
         }
         return dane;
     }
 
+    public static String[][] daneZnizki(String tableEmail)
+    {
+        new ListaKlientow();
+
+
+        for(int i=0;i<lista.size();i++){
+            if (lista.get(i).dajmail().equals(tableEmail)){
+                String [][] dane= new String[lista.get(i).dajZnizki().size()][3];
+
+                for(int j=0;j<lista.get(i).dajZnizki().size();j++)
+                {
+                    dane[j][0]=lista.get(i).dajmail();
+                    dane[j][1]=lista.get(i).dajZnizki().get(j).dajnazwe();
+                    dane[j][2]= String.valueOf(lista.get(i).dajZnizki().get(j).dajwartosc());
+                }
+                return dane;
+            }
+        }
+        return new String[0][];
+    }
+
+    public static void dodajZnizke(String wybranyEmail, String nazwaZnizki, String wielkoscZnizki) {
+
+        for(int i=0;i<lista.size();i++){
+
+            if (lista.get(i).dajmail().equals(wybranyEmail)){
+                lista.get(i).dodajZnizke(nazwaZnizki, wielkoscZnizki);
+            }
+        }
+    }
+
+
+
+    public static void usunZnizke(String tableEmail, String wartoscWybranejZnizki, String nazwaWybranejZnizki) {
+
+        for(int i=0;i<lista.size();i++){
+            if (lista.get(i).dajmail().equals(tableEmail)){
+                lista.get(i).usunZnizke(wartoscWybranejZnizki, nazwaWybranejZnizki);
+            }
+        }
+    }
+//
+//    public static void dopiszDoCsv(String znizkaDoDopisania) throws IOException {
+//
+//        FileWriter fstream = new FileWriter("klienci.csv", true);
+//        BufferedWriter out = new BufferedWriter(fstream);
+//
+//        out.write(znizkaDoDopisania);
+//        out.newLine();
+//
+//        //close buffer writer
+//        out.close();
+//    }
 }
