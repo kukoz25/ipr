@@ -98,7 +98,7 @@ public class Main_menu extends JFrame {
                     String kraj = tabelamiejsc.getModel().getValueAt(row, 1).toString();
 
                     Main_menu.super.dispose();
-                    usunMK guiusun = new usunMK(nazwa, kraj);
+                    new usunMK(nazwa, kraj);
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Proszę wybrać pozycję w tabeli!", "Brak danych", JOptionPane.INFORMATION_MESSAGE);
