@@ -93,7 +93,7 @@ public class ListaKlientow {
 
     public static void dopisDoCSV()throws Exception{
 
-        String fileName = "C:\\Users\\rainb\\IdeaProjects\\IPR_main\\klienci.csv";
+        String fileName = "klienci.csv";
         FileWriter fileWriter = new FileWriter(fileName);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
