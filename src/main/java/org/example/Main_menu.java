@@ -52,21 +52,22 @@ public class Main_menu extends JFrame {
 
         String k[] = {"Nazwa miesjca", "Kraj"};
         String n[]={"Imię", "Nazwisko", "Adres email", "numer telefonu","kraj pochodzenia"};
+        String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
 
         DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dane(), k);
         DefaultTableModel dtm1 = new DefaultTableModel(ListaKlientow.dane(), n);
+        DefaultTableModel dtm2 = new DefaultTableModel(ListaOdcinkow.dane(), o);;
 ;
         tabelamiejsc.setModel(dtm);
         tabelamiejsc.setDefaultEditor(Object.class, null);
-        klienci.setModel(dtm1);
-        klienci.setDefaultEditor(Object.class, null);
-        String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
-        //new ListaPrzewoznikow();
-        DefaultTableModel dtm2 = new DefaultTableModel(ListaOdcinkow.dane(), o);;
-        odcinkiTable.setModel(dtm2);
-        odcinkiTable.setDefaultEditor(Object.class, null);
+
         klienciTable.setModel(dtm1);
         klienciTable.setDefaultEditor(Object.class, null);
+
+
+        odcinkiTable.setModel(dtm2);
+        odcinkiTable.setDefaultEditor(Object.class, null);
+
         wylogujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

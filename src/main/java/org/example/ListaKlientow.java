@@ -84,16 +84,4 @@ public class ListaKlientow {
             }
         }
     }
-//
-//    public static void dopiszDoCsv(String znizkaDoDopisania) throws IOException {
-//
-//        FileWriter fstream = new FileWriter("klienci.csv", true);
-//        BufferedWriter out = new BufferedWriter(fstream);
-//
-//        out.write(znizkaDoDopisania);
-//        out.newLine();
-//
-//        //close buffer writer
-//        out.close();
-//    }
 }
