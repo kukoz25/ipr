@@ -81,6 +81,66 @@ public class ListaMiejsc {
         else return true;
     }
 
+    public static void usunMiejsce(String nazwa, String kraj){
+        try {
+            File inputFile = new File("miejsca.csv");
+            File tempFile = new File("myTempFile.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String lineToRemove = nazwa+","+kraj;
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.equals(lineToRemove)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+
+            inputFile.delete();
+            File dump = new File("miejsca.csv");
+            tempFile.renameTo(dump);
+
+        }
+        catch(IOException ex) {
+            System.out.println("error przy usuwaniu mk");
+        }
+    }
+    public static String[][] zaladujOdcinki(String nazwa){
+        HashMap<String,String> map = new HashMap<>();
+
+        try{
+            File inputFile = new File("odcinki.csv");
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            String wordToFind = nazwa;
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.contains(wordToFind)){
+                    String[] temp = trimmedLine.split(",");
+                    map.put(temp[0], temp[1]);
+                }
+            }
+            reader.close();
+        }
+        catch (Exception ex){
+            System.out.println("error while usun mk occured");
+        }
+
+        String [][] tabelaContent = new String[map.size()][2];
+        int iter = 0;
+
+        for(Map.Entry<String,String> entry : map.entrySet()){
+            tabelaContent[iter][0] = entry.getKey();
+            tabelaContent[iter][1] = entry.getValue();
+            iter++;
+        }
+        return tabelaContent;
+    }
     public static void zmienMK(String n_s, String k_s, String n_n, String k_n)
     {
         try {
