@@ -147,7 +147,7 @@ public class Main_menu extends JFrame {
                     rowData[i] = (String) klienciTable.getValueAt(tableRow, i);
                 }
 
-                System.out.println(rowData[2]);
+                //System.out.println(rowData[2]);
 
                 if (tableRow >= 0 && tableColumn >= 0) {
                     owned_discount o = new owned_discount(rowData[2]);
