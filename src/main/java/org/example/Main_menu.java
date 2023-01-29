@@ -70,7 +70,7 @@ public class Main_menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main_menu.super.dispose();
-                EditMK editMK = new EditMK(true, "null","null");
+                EditMK editMK = new EditMK(true, "","");
             }
         });
         edytujMiejsceKluczoweButton.addActionListener(new ActionListener() {
