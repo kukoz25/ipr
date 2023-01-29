@@ -19,10 +19,11 @@ public class Logout extends JFrame {
         wylogujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-Logout.super.setVisible(false);
-Login l=new Login();
+                Logout.super.setVisible(false);
+                Login l=new Login();
             }
         });
+
         anulujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

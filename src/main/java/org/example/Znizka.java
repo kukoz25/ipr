@@ -9,4 +9,10 @@ public class Znizka {
         this.nazwa=n;
         this.procent=p;
     }
+
+    String dajnazwe() {return this.nazwa;};
+
+    double dajwartosc() {return this.procent;}
+
+
 }
