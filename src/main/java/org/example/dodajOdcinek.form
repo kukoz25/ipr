@@ -8,25 +8,9 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="b55c1" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="b55c1" class="javax.swing.JComboBox" binding="przewoznik" custom-create="true">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="bc547" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="3d08b" class="javax.swing.JTextField" binding="textField2" default-binding="true">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
         </constraints>
         <properties/>
       </component>
@@ -126,7 +110,7 @@
           <text value="Zatwierdz"/>
         </properties>
       </component>
-      <component id="eb74e" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="eb74e" class="javax.swing.JTextField" binding="texttuktuk" custom-create="true">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -134,7 +118,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="2f261" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="2f261" class="javax.swing.JTextField" binding="textsamochod" custom-create="true">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -142,7 +126,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="882f3" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="882f3" class="javax.swing.JTextField" binding="textprom" custom-create="true">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -150,7 +134,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="6853d" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="6853d" class="javax.swing.JTextField" binding="textautobus" custom-create="true">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -158,11 +142,23 @@
         </constraints>
         <properties/>
       </component>
-      <component id="9649d" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+      <component id="9649d" class="javax.swing.JTextField" binding="textsamolot" custom-create="true">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="1540d" class="javax.swing.JComboBox" binding="skad" custom-create="true">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="9621e" class="javax.swing.JComboBox" binding="dokad" custom-create="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>

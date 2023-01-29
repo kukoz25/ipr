@@ -128,4 +128,22 @@ public class ListaMiejsc {
         }
         new ListaMiejsc();
     }
+
+    public static String[] miasta()
+    {
+        new ListaMiejsc();
+        Set<String> k = new HashSet<>();
+        for(int i=0;i<lista.size();i++)
+        {
+            //System.out.println(lista.get(i).dajkraj());
+            k.add(lista.get(i).dajnazwe());
+        }
+
+        String[] miasta=k.toArray(new String[k.size()]);
+        //System.out.println(kraje[1]);
+        return miasta;
+
+    }
+
+
 }

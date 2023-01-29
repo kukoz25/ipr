@@ -120,6 +120,8 @@ public class Main_menu extends JFrame {
         dodajOdcinekButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Main_menu.super.dispose();
+                new dodajOdcinek();
 
             }
         });

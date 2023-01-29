@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,10 +70,57 @@ public class ListaOdcinkow {
             inputFile1.delete();
             File dump1 = new File("odcinki.csv");
             tempFile1.renameTo(dump1);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println("error przy edytowaniu mk");
         }
         new ListaOdcinkow();
     }
+
+
+    public static boolean czypoprawne(int i) {
+        if (i == -1) {
+            return false;
+        } else return true;
+    }
+
+    public static void dodajodcinek(int a, int b, int c, String aa, String bb, String cc, String dd, String ee, boolean x) {
+
+        if(ListaOdcinkow.czypoprawne(a)&&ListaOdcinkow.czypoprawne(b)&&ListaOdcinkow.czypoprawne(c))
+        {        String przewoznik = ListaPrzewoznikow.przewoznik()[a];
+            String skad = ListaMiejsc.miasta()[b];
+            String dokad = ListaMiejsc.miasta()[c];
+            String[] kwoty = {aa, bb, cc, dd, ee};
+            for (int i = 0; i < kwoty.length; i++) {
+                if (kwoty[i].isEmpty() || kwoty[i] == " ") {
+                    kwoty[i] = "-";
+                }
+            }
+            String z;
+            if (x) {
+                z = "Tak";
+            } else z = "Nie";
+
+            try {
+                String str = skad + "," + dokad + "," + przewoznik + ",";
+                for (int i = 0; i < kwoty.length; i++) {
+                    if(i==kwoty.length-1) {
+                        str += kwoty[i] + ",";
+                    }
+                    else
+                        str += kwoty[i] + ";";
+                }
+                str+=z+"\n";
+                BufferedWriter writer = new BufferedWriter(new FileWriter("odcinki.csv", true));
+                writer.append(str);
+                writer.close();
+            } catch (IOException ex) {
+                System.out.println("error przy dodawaniu mk");
+            }
+            new ListaOdcinkow();
+            new Main_menu();
+        }
+        else
+                JOptionPane.showMessageDialog(null, "Błędne dane");
+    }
+
 }

@@ -46,6 +46,7 @@ public class usunMK extends JFrame{
         int iter = 0;
 
         for(Map.Entry<String,String> entry : map.entrySet()){
+            System.out.println(entry.getValue());
             tabelaContent[iter][0] = entry.getKey();
             tabelaContent[iter][1] = entry.getValue();
             iter++;
