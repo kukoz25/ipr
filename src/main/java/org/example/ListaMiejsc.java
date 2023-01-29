@@ -172,6 +172,8 @@ public class ListaMiejsc {
             BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
             writer2.append(str);
             writer2.close();
+
+            ListaOdcinkow.zmianaMK(n_s,n_n);
         }
         catch (IOException ex) {
             System.out.println("error przy edytowaniu mk");

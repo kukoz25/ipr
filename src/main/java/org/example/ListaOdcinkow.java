@@ -90,6 +90,7 @@ public class ListaOdcinkow {
                     currentLine1 = currentLine1.replace(wordToRemove, nowe);
                     writer1.write(currentLine1 + System.getProperty("line.separator"));
                 }
+                else
                 writer1.write(currentLine1 + System.getProperty("line.separator"));
             }
             writer1.close();
