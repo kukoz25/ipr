@@ -104,6 +104,7 @@ public class ListaMiejsc {
             inputFile.delete();
             File dump = new File("miejsca.csv");
             tempFile.renameTo(dump);
+            new ListaMiejsc();
 
         }
         catch(IOException ex) {

@@ -67,6 +67,7 @@ public class ListaOdcinkow {
             inputFile1.delete();
             File dump1 = new File("odcinki.csv");
             tempFile1.renameTo(dump1);
+            new ListaOdcinkow();
         }
         catch (Exception ex) {
             System.out.println("error przy usuwaniu odc");
