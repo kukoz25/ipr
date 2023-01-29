@@ -147,8 +147,9 @@ public class ListaOdcinkow {
             new ListaOdcinkow();
             new Main_menu();
         }
-        else
+        else{
                 JOptionPane.showMessageDialog(null, "Błędne dane");
+                new dodajOdcinek(); }
     }
 
 }

@@ -34,8 +34,9 @@ public class dodajOdcinek extends JFrame{
         zatwierdzButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-    ListaOdcinkow.dodajodcinek(przewoznik.getSelectedIndex(),skad.getSelectedIndex(),dokad.getSelectedIndex(),textsamolot.getText(),textautobus.getText(),textprom.getText(), textsamochod.getText(), texttuktuk.getText(), wykluczenieZeZnizekRadioButton.isSelected());
                 dodajOdcinek.super.dispose();
+    ListaOdcinkow.dodajodcinek(przewoznik.getSelectedIndex(),skad.getSelectedIndex(),dokad.getSelectedIndex(),textsamolot.getText(),textautobus.getText(),textprom.getText(), textsamochod.getText(), texttuktuk.getText(), wykluczenieZeZnizekRadioButton.isSelected());
+                //new Main_menu();
             }
         });
         anulujButton.addActionListener(new ActionListener() {
