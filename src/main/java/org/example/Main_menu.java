@@ -31,6 +31,8 @@ public class Main_menu extends JFrame {
     private JTable klienciTable;
     private JTextField SzukajField;
     private JButton SzukajButton;
+    private JButton edytujOdcinekButton;
+    private JButton usuńButton;
 
     private int tableRow;
 

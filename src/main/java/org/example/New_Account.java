@@ -29,5 +29,12 @@ public class New_Account extends JFrame{
                 New_Account.super.setVisible(false);
             }
         });
+        anulujButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                New_Account.super.dispose();
+                new Login();
+            }
+        });
     }
 }
