@@ -42,21 +42,12 @@ public class EditMK extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!isAdd){
-                if(ListaMiejsc.czypoprawne(nazwaMK.getText())&&ListaMiejsc.czypoprawne(krajMK.getText()))
-                {
                     ListaMiejsc.zmienMK(nMk,kMk,nazwaMK.getText(),krajMK.getText());
                 }
                 else
-                    JOptionPane.showMessageDialog(null, "Błędne dane");
-                }
-                else
                 {
-                    if(ListaMiejsc.czypoprawne(nazwaMK.getText())&&ListaMiejsc.czypoprawne(krajMK.getText()))
-                    {
                         ListaMiejsc.dodajMK(nazwaMK.getText(),krajMK.getText());
 
-                    }
-                    else JOptionPane.showMessageDialog(null, "Błędne dane");
                 }
                 EditMK.super.setVisible(false);
                 new Main_menu();

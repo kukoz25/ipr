@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -143,6 +144,8 @@ public class ListaMiejsc {
     }
     public static void zmienMK(String n_s, String k_s, String n_n, String k_n)
     {
+        if(czypoprawne(n_n)&& czypoprawne(k_n))
+        {
         try {
             File inputFile = new File("miejsca.csv");
             File tempFile = new File("myTempFile.csv");
@@ -173,20 +176,28 @@ public class ListaMiejsc {
         catch (IOException ex) {
             System.out.println("error przy edytowaniu mk");
         }
-        new ListaMiejsc();
+        new ListaMiejsc();}
+        else {
+            JOptionPane.showMessageDialog(null, "Błędne dane");
+        }
     }
 
     public static void dodajMK(String n, String k)
     {
-        try {
-            String str = "\n"+n+","+k;
-            BufferedWriter writer = new BufferedWriter(new FileWriter("miejsca.csv", true));
-            writer.append(str);
-            writer.close();
-        } catch(IOException ex) {
-            System.out.println("error przy dodawaniu mk");
+        if(czypoprawne(n)&& czypoprawne(k)) {
+            try {
+                String str = n + "," + k+"\n";
+                BufferedWriter writer = new BufferedWriter(new FileWriter("miejsca.csv", true));
+                writer.append(str);
+                writer.close();
+            } catch (IOException ex) {
+                System.out.println("error przy dodawaniu mk");
+            }
+            new ListaMiejsc();
         }
-        new ListaMiejsc();
+        else {
+            JOptionPane.showMessageDialog(null, "Błędne dane");
+        }
     }
 
     public static String[] miasta()
