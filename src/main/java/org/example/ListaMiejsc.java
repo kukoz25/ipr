@@ -104,27 +104,6 @@ public class ListaMiejsc {
             File dump = new File("miejsca.csv");
             tempFile.renameTo(dump);
 
-
-            File inputFile1 = new File("odcinki.csv");
-            File tempFile1 = new File("myTempFile.csv");
-
-            BufferedReader reader1 = new BufferedReader(new FileReader(inputFile1));
-            BufferedWriter writer1 = new BufferedWriter(new FileWriter(tempFile1));
-
-            String wordToRemove = nazwa;
-            String currentLine1;
-
-            while((currentLine1 = reader1.readLine()) != null) {
-                String trimmedLine = currentLine1.trim();
-                if(trimmedLine.contains(wordToRemove)) continue;
-                writer1.write(currentLine1 + System.getProperty("line.separator"));
-            }
-            writer1.close();
-            reader1.close();
-
-            inputFile1.delete();
-            File dump1 = new File("odcinki.csv");
-            tempFile1.renameTo(dump1);
         }
         catch(IOException ex) {
             System.out.println("error przy usuwaniu mk");

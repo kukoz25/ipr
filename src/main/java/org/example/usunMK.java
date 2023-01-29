@@ -40,6 +40,7 @@ public class usunMK extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ListaMiejsc.usunMiejsce(nazwa, kraj);
+                ListaOdcinkow.usunOdcinek(nazwa);
                 usunMK.super.dispose();
                 new Main_menu();
             }
