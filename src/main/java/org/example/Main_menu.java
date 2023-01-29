@@ -24,7 +24,6 @@ public class Main_menu extends JFrame {
     private JTable odcinkiTable;
     private JTextField skadTextField;
     private JTextField nazwaprzewoznika;
-    private JButton dodajButton;
     private JButton szukajButton1;
     private JTextField dokadTextField;
     private JButton dodajOdcinekButton;
@@ -122,16 +121,11 @@ public class Main_menu extends JFrame {
                 }
             }
         });
-        dodajButton.addActionListener(new ActionListener() {
+        dodajPrzewoznikaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(ListaPrzewoznikow.checkdane(nazwaprzewoznika.getText()))
-                {
-                    ListaPrzewoznikow.dodajdoListy(nazwaprzewoznika.getText());
-                }
-                else
-                    JOptionPane.showMessageDialog(null, "Błędne dane");
-
+                ListaPrzewoznikow.dodajdoListy(nazwaprzewoznika.getText());
+                nazwaprzewoznika.setText("");
             }
         });
         dodajOdcinekButton.addActionListener(new ActionListener() {

@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -56,20 +57,26 @@ public class ListaPrzewoznikow {
 
     public static void dodajdoListy(String g)
     {
-        lista.add(new Przewoznik(g));
-        try
+        if(ListaPrzewoznikow.checkdane(g))
         {
-            FileWriter fileWriter = new FileWriter("przewoznicy.csv",true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            try
+            {
+                FileWriter fileWriter = new FileWriter("przewoznicy.csv",true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
 
-            bufferedWriter.write(g+"\n");
-            bufferedWriter.close();
-            fileWriter.close();
+                bufferedWriter.write(g+"\n");
+                bufferedWriter.close();
+                fileWriter.close();
 
+            }
+            catch(IOException ex) {
+                System.out.println("Error writing to file '"+ "przewoznicy.csv" + "'");}
+            JOptionPane.showMessageDialog(null, "Dodano przewoznika");
         }
-        catch(IOException ex) {
-            System.out.println("Error writing to file '"+ "przewoznicy.csv" + "'");}
+        else
+            JOptionPane.showMessageDialog(null, "Błędne dane");
+        lista.add(new Przewoznik(g));
     }
 
     public static String[] przewoznik()
