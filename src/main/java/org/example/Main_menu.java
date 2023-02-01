@@ -167,4 +167,10 @@ public class Main_menu extends JFrame {
         kraj.setSelectedIndex(-1);
 
     }
+
+
+    void zmienwyswietlana(int x)
+    {
+        tabbedPane1.setSelectedIndex(x);
+    }
 }
