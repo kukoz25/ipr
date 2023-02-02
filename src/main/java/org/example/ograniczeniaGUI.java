@@ -23,21 +23,22 @@ public class ograniczeniaGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ograniczeniaGUI.super.dispose();
-                EditMK editMK = new EditMK(isAdd, nMk, kMk);
+                EditMK editMK = new EditMK(false, nMk, kMk);
             }
         });
         zapiszButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (Ograniczenie.czypoprawne(TypComboBox.getSelectedItem().toString()) && Ograniczenie.czypoprawne(opisTextField.getText())) {
-//                    if (!isAdd) {
-//                        ListaMiejsc.zmienMK(nMk, kMk, nazwaMK.getText(), krajMK.getText());
-//                    } else {
-//                        ListaMiejsc.dodajMK(nazwaMK.getText(), krajMK.getText());
-//
-//                    }
-//                    EditMK.super.setVisible(false);
-//                    new Main_menu().zmienwyswietlana(1);
+                    if (!isAdd) {
+                        ListaMiejsc.edytujograniczenie(nMk, kMk,typ,opis,TypComboBox.getSelectedItem().toString(), opisTextField.getText());
+                    } else {
+                      ListaMiejsc.dodajograniczenie(nMk, kMk,TypComboBox.getSelectedItem().toString(), opisTextField.getText());
+
+                    }
+                    ograniczeniaGUI.super.dispose();
+                    //new Main_menu().zmienwyswietlana(1);
+                    EditMK editMK = new EditMK(false, nMk, kMk);
 
                 }
                 else {

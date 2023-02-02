@@ -13,14 +13,21 @@ public class MiejscaKluczowe {
         this.nazwa = n;
         this.kraj = k;
         String tmp[]=o.split(";");
-        //System.out.println();
-        if(tmp.length>1)
+        //System.out.println(tmp[0]);
+        //System.out.println(tmp.length);
+        if(tmp.length>=1)
         {
             listaOgraniczen=new ArrayList<Ograniczenie>();
             for(int i=0;i< tmp.length;i++)
             {
                 String tmp2[]=tmp[i].split("-");
-                listaOgraniczen.add(new Ograniczenie(tmp2[0],tmp2[1]));
+                //System.out.println(tmp2.length);
+                if(tmp2.length>1)
+                {
+                    //System.out.println(tmp2[0]+"+"+tmp2[1]);
+                    //System.out.println(tmp2[0]+"+"+tmp2[1]);
+                    listaOgraniczen.add(new Ograniczenie(tmp2[0],tmp2[1]));
+                }
             }
         }
     }
@@ -35,8 +42,10 @@ public class MiejscaKluczowe {
 
     public String [][] dajograniczenia() {
         if (listaOgraniczen != null) {
+            //System.out.println(this.kraj+"+"+this.nazwa);
             String dane[][] = new String[listaOgraniczen.size()][2];
             for (int i = 0; i < listaOgraniczen.size(); i++) {
+                //System.out.println(listaOgraniczen.get(i).dajTyp()+" "+listaOgraniczen.get(i).dajOpis());
                 dane[i][0] = listaOgraniczen.get(i).dajTyp();
                 dane[i][1] = listaOgraniczen.get(i).dajOpis();
             }

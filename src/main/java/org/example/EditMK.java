@@ -66,6 +66,11 @@ public class EditMK extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ograniczeniaGUI(true,nMk, kMk,"","");
+                EditMK.super.dispose();
+//                String k[] = {"typ","opis"};
+//                DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dajograniczenia(nMk,kMk), k);
+//                ograniczeniaTabela.setModel(dtm);
+//                ograniczeniaTabela.setDefaultEditor(Object.class, null);
             }
         });
 
@@ -76,8 +81,12 @@ public class EditMK extends JFrame{
                 if(row != -1){
                     String typ = ograniczeniaTabela.getModel().getValueAt(row, 0).toString();
                     String opis = ograniczeniaTabela.getModel().getValueAt(row, 1).toString();
-
+                    EditMK.super.dispose();
                     new ograniczeniaGUI(false,nMk, kMk,typ, opis);
+//                    String k[] = {"typ","opis"};
+//                    DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dajograniczenia(nMk,kMk), k);
+//                    ograniczeniaTabela.setModel(dtm);
+//                    ograniczeniaTabela.setDefaultEditor(Object.class, null);
                 }
             }
         });
@@ -91,6 +100,23 @@ public class EditMK extends JFrame{
                 {
                     edytujOgraniczenieButton.setEnabled(true);
                     usunOgraniczenieButton.setEnabled(true);
+                }
+            }
+        });
+        usunOgraniczenieButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = ograniczeniaTabela.getSelectedRow();
+                if(row!=-1) {
+                    String typ = ograniczeniaTabela.getModel().getValueAt(row, 0).toString();
+                    String opis = ograniczeniaTabela.getModel().getValueAt(row, 1).toString();
+                    System.out.println(typ + "+" + opis);
+                    System.out.println(nMk + "+" + kMk);
+                    ListaMiejsc.usunograniczenie(nMk, kMk,typ, opis);
+                    String k[] = {"typ", "opis"};
+                    DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dajograniczenia(nMk, kMk), k);
+                    ograniczeniaTabela.setModel(dtm);
+                    ograniczeniaTabela.setDefaultEditor(Object.class, null);
                 }
             }
         });

@@ -18,9 +18,11 @@ public class ListaMiejsc {
             while ((line = br.readLine()) != null)
             {
                 String[] miejsce = line.split(splitBy);
+                //System.out.println(miejsce.length);
                 if(miejsce.length==3)
                 {
                     this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1],miejsce[2]));
+                    //System.out.println(miejsce[2]);
                 }
                 else
                     this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1],""));
@@ -95,13 +97,12 @@ public class ListaMiejsc {
 
     public static String[][] dajograniczenia(String nazwa,String kraj){
         new ListaMiejsc();
-        new ListaMiejsc();
         //System.out.println(lista.size());
         for(int i=0; i<lista.size();i++)
         {
             if(lista.get(i).dajnazwe().equals(nazwa)&&lista.get(i).dajkraj().equals(kraj))
             {
-                //System.out.println(lista.get(i));
+                //System.out.println(lista.get(i).dajograniczenia().);
                 return lista.get(i).dajograniczenia();
             }
         }
@@ -258,5 +259,149 @@ public class ListaMiejsc {
 
     }
 
+    public static void dodajograniczenie(String nazwa, String kraj, String typ, String opis)
+    {
+        try {
+            File inputFile = new File("miejsca.csv");
+            File tempFile = new File("myTempFile.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            String tmp="";
+            String lineToRemove = nazwa+","+kraj;
+            String currentLine;
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                tmp=trimmedLine;
+                if(trimmedLine.contains(lineToRemove)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+
+            boolean etap2 = inputFile.delete();
+            File dump = new File("miejsca.csv");
+            boolean etap4 = tempFile.renameTo(dump);
+                String tmp2[]=tmp.split(",");
+                String str="";
+                if(tmp2.length>2) {
+                     str = nazwa + "," + kraj +","+ tmp2[2]+typ+"-"+opis+";";
+                }
+                else {
+                    str = nazwa + "," + kraj +","+typ+"-"+opis+";";
+                }
+            //System.out.println(str);
+            BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
+            writer2.append(str);
+            writer2.close();
+            new ListaMiejsc();
+        }
+        catch (IOException ex) {
+            System.out.println("error przy edytowaniu mk");
+        }
+        new ListaMiejsc();
+    }
+
+
+    public static void edytujograniczenie(String nazwa, String kraj, String typ_s, String opis_s, String typ_n, String opis_n)
+    {
+        try {
+            File inputFile = new File("miejsca.csv");
+            File tempFile = new File("myTempFile.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            String tmp="";
+            String lineToRemove1 = nazwa+","+kraj;
+            String lineToRemove2 = typ_s+"-"+opis_s;
+            String currentLine;
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                tmp=trimmedLine;
+                if(trimmedLine.contains(lineToRemove1) && trimmedLine.contains(lineToRemove2)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+
+            boolean etap2 = inputFile.delete();
+            File dump = new File("miejsca.csv");
+            boolean etap4 = tempFile.renameTo(dump);
+            String tmp2[]=tmp.split(",");
+            String str="";
+            str=nazwa+","+kraj+",";
+            String tmp3[]=tmp2[2].split(";");
+            for(int i=0;i<tmp3.length;i++)
+            {
+                //System.out.println(tmp3[i]);
+                if(tmp3[i].equals(lineToRemove2))
+                {
+                    str+=typ_n+"-"+opis_n+";";
+                }
+                else str+=tmp3[i]+";";
+
+            }
+            //System.out.println(str);
+            BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
+            writer2.append(str);
+            writer2.close();
+            new ListaMiejsc();
+        }
+        catch (IOException ex) {
+            System.out.println("error przy edytowaniu mk");
+        }
+        new ListaMiejsc();
+    }
+
+
+    public static void usunograniczenie(String nazwa, String kraj, String typ_s, String opis_s)
+    {
+        try {
+            File inputFile = new File("miejsca.csv");
+            File tempFile = new File("myTempFile.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            String tmp="";
+            String lineToRemove1 = nazwa+","+kraj;
+            String lineToRemove2 = typ_s+"-"+opis_s;
+            String currentLine;
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                tmp=trimmedLine;
+                if(trimmedLine.contains(lineToRemove1) && trimmedLine.contains(lineToRemove2)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+
+            boolean etap2 = inputFile.delete();
+            File dump = new File("miejsca.csv");
+            boolean etap4 = tempFile.renameTo(dump);
+            System.out.println(tmp);
+            String tmp2[]=tmp.split(",");
+            String str="";
+            str=nazwa+","+kraj+",";
+            String tmp3[]=tmp2[2].split(";");
+            for(int i=0;i<tmp3.length;i++)
+            {
+                //System.out.println(tmp3[i]);
+                if(tmp3[i].equals(lineToRemove2))
+                {
+                }
+                else str+=tmp3[i]+";";
+
+            }
+            //System.out.println(str);
+            BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
+            writer2.append(str);
+            writer2.close();
+            new ListaMiejsc();
+        }
+        catch (IOException ex) {
+            System.out.println("error przy edytowaniu mk");
+        }
+        new ListaMiejsc();
+    }
 
 }
