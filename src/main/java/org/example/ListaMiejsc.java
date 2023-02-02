@@ -18,8 +18,14 @@ public class ListaMiejsc {
             while ((line = br.readLine()) != null)
             {
                 String[] miejsce = line.split(splitBy);
+                if(miejsce.length==3)
+                {
+                    this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1],miejsce[2]));
+                }
+                else
+                    this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1],""));
                 //System.out.println(uzytkownik[0]+' '+uzytkownik[1]+' '+uzytkownik[2]+' '+uzytkownik[3]+' '+uzytkownik[4]);
-                this.lista.add(new MiejscaKluczowe(miejsce[0],miejsce[1]));
+
             }
             br.close();
         }
@@ -87,6 +93,21 @@ public class ListaMiejsc {
         return null;
     }
 
+    public static String[][] dajograniczenia(String nazwa,String kraj){
+        new ListaMiejsc();
+        new ListaMiejsc();
+        //System.out.println(lista.size());
+        for(int i=0; i<lista.size();i++)
+        {
+            if(lista.get(i).dajnazwe().equals(nazwa)&&lista.get(i).dajkraj().equals(kraj))
+            {
+                //System.out.println(lista.get(i));
+                return lista.get(i).dajograniczenia();
+            }
+        }
+        return null;
+    }
+
     public static boolean czypoprawne(String n)
     {
         if(n.isEmpty())
@@ -109,7 +130,7 @@ public class ListaMiejsc {
 
             while((currentLine = reader.readLine()) != null) {
                 String trimmedLine = currentLine.trim();
-                if(trimmedLine.equals(lineToRemove)) continue;
+                if(trimmedLine.contains(lineToRemove)) continue;
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close();
@@ -168,10 +189,11 @@ public class ListaMiejsc {
 
             String lineToRemove = n_s+","+k_s;
             String currentLine;
-
+            String tmp="";
             while((currentLine = reader.readLine()) != null) {
                 String trimmedLine = currentLine.trim();
-                if(trimmedLine.equals(lineToRemove)) continue;
+                tmp=trimmedLine;
+                if(trimmedLine.contains(lineToRemove)) continue;
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close();
@@ -180,8 +202,21 @@ public class ListaMiejsc {
             boolean etap2 = inputFile.delete();
             File dump = new File("miejsca.csv");
             boolean etap4 = tempFile.renameTo(dump);
-
-            String str = n_n+","+k_n;
+            String str="";
+            //System.out.println(tmp);
+            if(!tmp.equals(""))
+            {
+                String tmp2[]=tmp.split(",");
+                if(tmp2.length>2) {
+                     str = n_n + "," + k_n +","+ tmp2[2];
+                }
+                else {
+                     str = n_n + "," + k_n;
+                }
+            }
+            else {
+                 str = n_n + "," + k_n;
+            }
             BufferedWriter writer2 = new BufferedWriter(new FileWriter("miejsca.csv", true));
             writer2.append(str);
             writer2.close();

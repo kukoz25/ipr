@@ -2,6 +2,9 @@ package org.example;
 
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,9 +12,6 @@ public class EditMK extends JFrame{
     private JPanel panel;
     private JTable ograniczeniaTabela;
     private JTextField nazwaMK;
-    private JRadioButton wizyRadioButton;
-    private JRadioButton szczepieniaRadioButton;
-    private JRadioButton zagrozeniaRadioButton;
     private JButton dodajOgraniczenieButton;
     private JButton usunOgraniczenieButton;
     private JButton zapiszButton;
@@ -27,6 +27,10 @@ public class EditMK extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         String k[] = {"typ","opis"};
+        DefaultTableModel dtm = new DefaultTableModel(ListaMiejsc.dajograniczenia(nMk,kMk), k);
+        ograniczeniaTabela.setModel(dtm);
+        ograniczeniaTabela.setDefaultEditor(Object.class, null);
+
 
         if(!isAdd){
             nazwaMK.setText(nMk);
@@ -78,6 +82,18 @@ public class EditMK extends JFrame{
             }
         });
 
+        edytujOgraniczenieButton.setEnabled(false);
+        usunOgraniczenieButton.setEnabled(false);
+        ograniczeniaTabela.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if(ograniczeniaTabela.getSelectedRow()!=-1)
+                {
+                    edytujOgraniczenieButton.setEnabled(true);
+                    usunOgraniczenieButton.setEnabled(true);
+                }
+            }
+        });
     }
 
 }

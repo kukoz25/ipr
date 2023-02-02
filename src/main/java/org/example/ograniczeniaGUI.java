@@ -43,7 +43,6 @@ public class ograniczeniaGUI extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(null, "Błędne dane");}
             }
-            }
         });
     }
 }
