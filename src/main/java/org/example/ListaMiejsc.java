@@ -145,8 +145,6 @@ public class ListaMiejsc {
     }
     public static void zmienMK(String n_s, String k_s, String n_n, String k_n)
     {
-        if(czypoprawne(n_n)&& czypoprawne(k_n))
-        {
         try {
             File inputFile = new File("miejsca.csv");
             File tempFile = new File("myTempFile.csv");
@@ -179,15 +177,11 @@ public class ListaMiejsc {
         catch (IOException ex) {
             System.out.println("error przy edytowaniu mk");
         }
-        new ListaMiejsc();}
-        else {
-            JOptionPane.showMessageDialog(null, "Błędne dane");
-        }
+        new ListaMiejsc();
     }
 
     public static void dodajMK(String n, String k)
     {
-        if(czypoprawne(n)&& czypoprawne(k)) {
             try {
                 String str = n + "," + k+"\n";
                 BufferedWriter writer = new BufferedWriter(new FileWriter("miejsca.csv", true));
@@ -197,10 +191,6 @@ public class ListaMiejsc {
                 System.out.println("error przy dodawaniu mk");
             }
             new ListaMiejsc();
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Błędne dane");
-        }
     }
 
     public static String[] miasta()
