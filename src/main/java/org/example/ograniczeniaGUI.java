@@ -29,21 +29,20 @@ public class ograniczeniaGUI extends JFrame{
         anulujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ListaMiejsc.czypoprawne(nazwaMK.getText()) && ListaMiejsc.czypoprawne(krajMK.getText())) {
-                    if (!isAdd) {
-                        ListaMiejsc.zmienMK(nMk, kMk, nazwaMK.getText(), krajMK.getText());
-                    } else {
-                        ListaMiejsc.dodajMK(nazwaMK.getText(), krajMK.getText());
-
-                    }
-                    EditMK.super.setVisible(false);
+//                if (ListaMiejsc.czypoprawne(nazwaMK.getText()) && ListaMiejsc.czypoprawne(krajMK.getText())) {
+//                    if (!isAdd) {
+//                        ListaMiejsc.zmienMK(nMk, kMk, nazwaMK.getText(), krajMK.getText());
+//                    } else {
+//                        ListaMiejsc.dodajMK(nazwaMK.getText(), krajMK.getText());
+//
+//                    }
+//                    EditMK.super.setVisible(false);
                     new Main_menu().zmienwyswietlana(1);
-
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Błędne dane");}
-            }
-            }
+//
+//                }
+//                else {
+//                    JOptionPane.showMessageDialog(null, "Błędne dane");}
+           }
         });
     }
 }
