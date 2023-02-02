@@ -61,9 +61,10 @@ public class EditMK extends JFrame{
         dodajOgraniczenieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ograniczeniaGUI(false,"es", "es");
+                new ograniczeniaGUI(false,nMk, kMk);
             }
         });
+
     }
 
 }

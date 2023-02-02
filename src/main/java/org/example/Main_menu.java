@@ -19,7 +19,7 @@ public class Main_menu extends JFrame {
     private JButton dodajMiejsceKluczoweButton;
     private JButton usunMiesjceKluczoweButton;
     private JTable klienci;
-    private JTextField textField1;
+    private JTextField nazwaMKtextField;
     private JButton szukajButton;
     private JTable odcinkiTable;
     private JTextField skadTextField;
@@ -159,6 +159,25 @@ public class Main_menu extends JFrame {
             }
         });
 
+        szukajButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!nazwaMKtextField.getText().isBlank()){
+                    MiejscaKluczowe miejsce = ListaMiejsc.dajmiejsce(nazwaMKtextField.getText());
+                    if(miejsce!=null) {
+                        String[][] daneSzukaj = {{miejsce.dajnazwe(), miejsce.dajkraj()}};
+                        DefaultTableModel dtmSzukaj = new DefaultTableModel(daneSzukaj, k);
+                        tabelamiejsc.setModel(dtmSzukaj);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Nie ma takiego miejsca!", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+                else{
+                    tabelamiejsc.setModel(dtm);
+                }
+            }
+        });
     }
 
 

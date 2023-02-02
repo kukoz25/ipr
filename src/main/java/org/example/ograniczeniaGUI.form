@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="d9688" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="d9688" class="javax.swing.JComboBox" binding="TypComboBox">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -20,7 +20,7 @@
           </model>
         </properties>
       </component>
-      <component id="44b2d" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="44b2d" class="javax.swing.JTextField" binding="opisTextField">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -41,7 +41,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Okres obowiazywania:"/>
+          <text value="Opis:"/>
         </properties>
       </component>
       <component id="bdfc8" class="javax.swing.JLabel">
@@ -57,7 +57,7 @@
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Dodaj"/>
+          <text value="Zapisz"/>
         </properties>
       </component>
       <component id="11a9" class="javax.swing.JButton" binding="anulujButton" default-binding="true">
@@ -65,7 +65,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Anuluj"/>
+          <text value="Cofnij"/>
         </properties>
       </component>
     </children>
