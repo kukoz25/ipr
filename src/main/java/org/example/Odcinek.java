@@ -4,7 +4,7 @@ public class Odcinek {
     private MiejscaKluczowe poczatek;
     private MiejscaKluczowe koniec;
     private Przewoznik przewoznik;
-    private ListaPojazdow pojazdy=new ListaPojazdow();;
+    private ListaPojazdow pojazdy=new ListaPojazdow();
     private String wykluczenie;
 
     Odcinek(String p, String k, String g, String wrum[], String w) {

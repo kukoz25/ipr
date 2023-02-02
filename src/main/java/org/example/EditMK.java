@@ -1,7 +1,6 @@
 package org.example;
 
 
-import java.io.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +14,8 @@ public class EditMK extends JFrame{
     private JRadioButton zagrozeniaRadioButton;
     private JButton dodajOgraniczenieButton;
     private JButton usunOgraniczenieButton;
-    private JButton zatwierdzButton;
-    private JButton anulujButton;
+    private JButton zapiszButton;
+    private JButton cofnijButton;
     private JButton edytujOgraniczenieButton;
     private JTextField krajMK;
 
@@ -27,13 +26,13 @@ public class EditMK extends JFrame{
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        String k[] = {"ograniczenie","co"};
+        String k[] = {"typ","opis"};
 
         if(!isAdd){
             nazwaMK.setText(nMk);
             krajMK.setText(kMk);
         }
-        anulujButton.addActionListener(new ActionListener() {
+        cofnijButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EditMK.super.setVisible(false);
@@ -41,7 +40,7 @@ public class EditMK extends JFrame{
 
             }
         });
-        zatwierdzButton.addActionListener(new ActionListener() {
+        zapiszButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!isAdd){
@@ -63,61 +62,6 @@ public class EditMK extends JFrame{
                 new ograniczeniaGUI(false,"es", "es");
             }
         });
-        szczepieniaRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(szczepieniaRadioButton.isSelected())
-                {
-                    zagrozeniaRadioButton.setEnabled(false);
-                    wizyRadioButton.setEnabled(false);
-                }
-                else {
-                    szczepieniaRadioButton.setEnabled(true);
-                    zagrozeniaRadioButton.setEnabled(true);
-                    wizyRadioButton.setEnabled(true);
-
-                }
-
-            }
-        });
-        zagrozeniaRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(zagrozeniaRadioButton.isSelected())
-                {
-                    szczepieniaRadioButton.setEnabled(false);
-                    wizyRadioButton.setEnabled(false);
-                }
-                else {
-                    szczepieniaRadioButton.setEnabled(true);
-                    zagrozeniaRadioButton.setEnabled(true);
-                    wizyRadioButton.setEnabled(true);
-
-                }
-            }
-        });
-        wizyRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(wizyRadioButton.isSelected())
-                {
-                    szczepieniaRadioButton.setEnabled(false);
-                    zagrozeniaRadioButton.setEnabled(false);
-                }
-                else {
-                    szczepieniaRadioButton.setEnabled(true);
-                    zagrozeniaRadioButton.setEnabled(true);
-                    wizyRadioButton.setEnabled(true);
-
-                }
-            }
-        });
     }
 
-    private void createUIComponents() {
-        szczepieniaRadioButton = new JRadioButton();
-        zagrozeniaRadioButton = new JRadioButton();
-        wizyRadioButton = new JRadioButton();
-        // TODO: place custom component creation code here
-    }
 }
