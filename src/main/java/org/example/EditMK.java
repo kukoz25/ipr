@@ -35,8 +35,8 @@ public class EditMK extends JFrame{
         cofnijButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditMK.super.setVisible(false);
                 new Main_menu().zmienwyswietlana(1);
+                EditMK.super.dispose();
 
             }
         });
