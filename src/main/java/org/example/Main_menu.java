@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main_menu extends JFrame {
@@ -19,7 +18,7 @@ public class Main_menu extends JFrame {
     private JComboBox kraj;
     private JButton edytujMiejsceKluczoweButton;
     private JButton dodajMiejsceKluczoweButton;
-    private JButton usunMiesjceKluczoweButton;
+    private JButton usunMiejsceKluczoweButton;
     private JTable klienci;
     private JTextField nazwaMKtextField;
     private JButton szukajButton;
@@ -109,7 +108,7 @@ public class Main_menu extends JFrame {
                 }
             }
         });
-        usunMiesjceKluczoweButton.addActionListener(new ActionListener() {
+        usunMiejsceKluczoweButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int row = tabelamiejsc.getSelectedRow();

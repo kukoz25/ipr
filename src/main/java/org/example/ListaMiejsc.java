@@ -378,7 +378,7 @@ public class ListaMiejsc {
             boolean etap2 = inputFile.delete();
             File dump = new File("miejsca.csv");
             boolean etap4 = tempFile.renameTo(dump);
-            System.out.println(tmp);
+            //System.out.println(tmp);
             String tmp2[]=tmp.split(",");
             String str="";
             str=nazwa+","+kraj+",";
@@ -401,7 +401,6 @@ public class ListaMiejsc {
         catch (IOException ex) {
             System.out.println("error przy edytowaniu mk");
         }
-        new ListaMiejsc();
     }
 
 }

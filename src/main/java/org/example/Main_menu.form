@@ -185,12 +185,12 @@
                   <text value="Dodaj miejsce kluczowe"/>
                 </properties>
               </component>
-              <component id="cbaf9" class="javax.swing.JButton" binding="usunMiesjceKluczoweButton">
+              <component id="cbaf9" class="javax.swing.JButton" binding="usunMiejsceKluczoweButton">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Usuń miesjce kluczowe"/>
+                  <text value="Usuń miejsce kluczowe"/>
                 </properties>
               </component>
               <component id="e38ac" class="javax.swing.JLabel">

@@ -22,8 +22,9 @@ public class ograniczeniaGUI extends JFrame{
         cofnijButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ograniczeniaGUI.super.dispose();
                 EditMK editMK = new EditMK(false, nMk, kMk);
+                ograniczeniaGUI.super.dispose();
+
             }
         });
         zapiszButton.addActionListener(new ActionListener() {
@@ -35,10 +36,10 @@ public class ograniczeniaGUI extends JFrame{
                     } else {
                       ListaMiejsc.dodajograniczenie(nMk, kMk,TypComboBox.getSelectedItem().toString(), opisTextField.getText());
 
-                    }
+                    } EditMK editMK = new EditMK(false, nMk, kMk);
                     ograniczeniaGUI.super.dispose();
                     //new Main_menu().zmienwyswietlana(1);
-                    EditMK editMK = new EditMK(false, nMk, kMk);
+
 
                 }
                 else {
