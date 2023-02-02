@@ -58,6 +58,20 @@ public class ListaMiejsc {
 
     }
 
+    public static List<MiejscaKluczowe> szukaj(String nazwa)
+    {
+        List<MiejscaKluczowe> list = new ArrayList<MiejscaKluczowe>();
+        new ListaMiejsc();
+        for(int i=0;i<lista.size();i++)
+        {
+            if(lista.get(i).dajnazwe().equals(nazwa))
+            {
+                list.add(lista.get(i));
+            }
+        }
+        return list;
+    }
+
     public static MiejscaKluczowe dajmiejsce(String nazwa)
     {
         new ListaMiejsc();

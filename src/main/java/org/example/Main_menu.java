@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main_menu extends JFrame {
     private JLabel nazwa_konta;
@@ -51,7 +53,7 @@ public class Main_menu extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        String k[] = {"Nazwa miesjca", "Kraj"};
+        String k[] = {"Nazwa miejsca", "Kraj"};
         String n[]={"Imię", "Nazwisko", "Adres email", "numer telefonu","kraj pochodzenia"};
         String o[]={"Skąd","Dokąd","Przewoznik","Samolot","Autobus","Prom","Samochód","Tuk-Tuk","Wykluczenie zniżek"};
 
@@ -163,14 +165,20 @@ public class Main_menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!nazwaMKtextField.getText().isBlank()){
-                    MiejscaKluczowe miejsce = ListaMiejsc.dajmiejsce(nazwaMKtextField.getText());
-                    if(miejsce!=null) {
-                        String[][] daneSzukaj = {{miejsce.dajnazwe(), miejsce.dajkraj()}};
+                    List<MiejscaKluczowe> miejsca = ListaMiejsc.szukaj(nazwaMKtextField.getText());
+                    if(!miejsca.isEmpty()) {
+                         String[][] daneSzukaj= new String[miejsca.size()][2];
+                        for(int i=0;i<miejsca.size();i++)
+                        {
+                            daneSzukaj[i][0]=miejsca.get(i).dajnazwe();
+                            daneSzukaj[i][1]=miejsca.get(i).dajkraj();
+                        }
                         DefaultTableModel dtmSzukaj = new DefaultTableModel(daneSzukaj, k);
                         tabelamiejsc.setModel(dtmSzukaj);
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Nie ma takiego miejsca!", "Error", JOptionPane.INFORMATION_MESSAGE);
+                        nazwaMKtextField.setText("");
                     }
                 }
                 else{
