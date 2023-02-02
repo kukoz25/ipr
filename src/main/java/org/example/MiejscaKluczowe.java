@@ -4,9 +4,12 @@ public class MiejscaKluczowe {
     private String nazwa;
     private String kraj;
 
-    MiejscaKluczowe(String n, String k) {
+    private Ograniczenie listaOgraniczen[];
+
+    MiejscaKluczowe(String n, String k, Ograniczenie listaOgraniczen[]) {
         this.nazwa = n;
         this.kraj = k;
+        this.listaOgraniczen = listaOgraniczen;
     }
 
     String dajnazwe() {
@@ -16,4 +19,6 @@ public class MiejscaKluczowe {
     String dajkraj() {
         return this.kraj;
     }
+
+    Ograniczenie[] dajOgraniczenia(){ return this.listaOgraniczen; }
 }

@@ -52,7 +52,7 @@
           <text value="(format daty DD-MM-YYYY)"/>
         </properties>
       </component>
-      <component id="65956" class="javax.swing.JButton" binding="dodajButton" default-binding="true">
+      <component id="65956" class="javax.swing.JButton" binding="zapiszButton">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -60,7 +60,7 @@
           <text value="Zapisz"/>
         </properties>
       </component>
-      <component id="11a9" class="javax.swing.JButton" binding="anulujButton" default-binding="true">
+      <component id="11a9" class="javax.swing.JButton" binding="cofnijButton">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 public class ograniczeniaGUI extends JFrame{
     private JComboBox TypComboBox;
     private JTextField opisTextField;
-    private JButton dodajButton;
-    private JButton anulujButton;
+    private JButton zapiszButton;
+    private JButton cofnijButton;
     private JPanel panel;
 
-    public ograniczeniaGUI(boolean isAdd, String nMk, String kMk) {
+    public ograniczeniaGUI(boolean isAdd, String nMk, String kMk, String typ, String opis) {
         this.setContentPane(this.panel);
         this.setTitle("Ograniczenia");
         this.setSize(600, 400);
@@ -19,25 +19,25 @@ public class ograniczeniaGUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
-        dodajButton.addActionListener(new ActionListener() {
+        cofnijButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ograniczeniaGUI.super.dispose();
                 EditMK editMK = new EditMK(isAdd, nMk, kMk);
             }
         });
-        anulujButton.addActionListener(new ActionListener() {
+        zapiszButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ListaMiejsc.czypoprawne(nazwaMK.getText()) && ListaMiejsc.czypoprawne(krajMK.getText())) {
-                    if (!isAdd) {
-                        ListaMiejsc.zmienMK(nMk, kMk, nazwaMK.getText(), krajMK.getText());
-                    } else {
-                        ListaMiejsc.dodajMK(nazwaMK.getText(), krajMK.getText());
-
-                    }
-                    EditMK.super.setVisible(false);
-                    new Main_menu().zmienwyswietlana(1);
+                if (Ograniczenie.czypoprawne(TypComboBox.getSelectedItem().toString()) && Ograniczenie.czypoprawne(opisTextField.getText())) {
+//                    if (!isAdd) {
+//                        ListaMiejsc.zmienMK(nMk, kMk, nazwaMK.getText(), krajMK.getText());
+//                    } else {
+//                        ListaMiejsc.dodajMK(nazwaMK.getText(), krajMK.getText());
+//
+//                    }
+//                    EditMK.super.setVisible(false);
+//                    new Main_menu().zmienwyswietlana(1);
 
                 }
                 else {

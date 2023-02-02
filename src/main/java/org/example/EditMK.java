@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class EditMK extends JFrame{
     private JPanel panel;
-    private JTable table1;
+    private JTable ograniczeniaTabela;
     private JTextField nazwaMK;
     private JRadioButton wizyRadioButton;
     private JRadioButton szczepieniaRadioButton;
@@ -61,10 +61,22 @@ public class EditMK extends JFrame{
         dodajOgraniczenieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ograniczeniaGUI(false,nMk, kMk);
+                new ograniczeniaGUI(true,nMk, kMk,"","");
             }
         });
 
+        edytujOgraniczenieButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = ograniczeniaTabela.getSelectedRow();
+                if(row != -1){
+                    String typ = ograniczeniaTabela.getModel().getValueAt(row, 0).toString();
+                    String opis = ograniczeniaTabela.getModel().getValueAt(row, 1).toString();
+
+                    new ograniczeniaGUI(false,nMk, kMk,typ, opis);
+                }
+            }
+        });
     }
 
 }

@@ -183,7 +183,7 @@ public class ListaMiejsc {
     public static void dodajMK(String n, String k)
     {
             try {
-                String str = n + "," + k+"\n";
+                String str = n + "," + k+ ","+"\n";
                 BufferedWriter writer = new BufferedWriter(new FileWriter("miejsca.csv", true));
                 writer.append(str);
                 writer.close();
